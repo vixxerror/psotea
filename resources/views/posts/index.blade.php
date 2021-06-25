@@ -38,4 +38,6 @@
      </div>
      
 @endauth
+
+{{  $posts->links()  }}
 @endsection

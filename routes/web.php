@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MailController;
 
 Route::get('/',function(){
     return redirect('/posts');
@@ -28,9 +29,9 @@ Route::delete('/posts/{id}',[PostController::class,'destroy'])->name('post');
 
 Route::post('/users/{user}',[UserController::class,'update'])->name('update');
 
+Route::get('/email/{numero}',[MailController::class,'enviar']);
 
-
-
+Route::get('/noti',[CommentController::class,'noti']);
 
 Route::delete('/users/{user}',[UserController::class,'destroy'])->name('user.delete');
 

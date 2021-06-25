@@ -8,7 +8,7 @@ use App\Models\Post;
 use Carbon\Carbon;
 use Jenssegers\Mongodb\Eloquent;
 use Jenssegers\Mongodb\Query\Builder;
-
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -19,8 +19,11 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::paginate(10);
         return view('posts.index', compact('posts'));
+
+      
+        
     }
 
     public function show($id)
